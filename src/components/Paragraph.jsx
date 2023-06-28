@@ -1,6 +1,10 @@
-function Paragraph({}) {
+function Paragraph({ text="description"}) {
 	return (
-		<div> </div>
+		<div className="p-cover"> 
+		<p className="p">
+		{ text }
+		</p>
+		</div>
 	);
 }
 

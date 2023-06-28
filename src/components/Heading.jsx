@@ -1,8 +1,10 @@
 import { useState } from "react";
 
-function Heading({}) {
+function Heading({text = "later sign up test"}) {
 	return (
-		<h1>news later sign up</h1>
+		<h1 className="main-heading">
+		{ text }
+		</h1>
 	);
 }
 
