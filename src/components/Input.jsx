@@ -8,6 +8,7 @@ function Input({type = "email",
 		<input 
 		type={ type } 
 		placeholder={ placeHolder }
+		required="required"
 		className={ cssName ? cssName : "input" } 
 		name={name}
 		/>

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function SignUpCard({}) {
 	return (
-		<div className="sign-up-card">
+		<div className="sign-up">
 
 		</div>
 	);
