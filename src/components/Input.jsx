@@ -1,15 +1,16 @@
 function Input({type = "email",
 	placeHolder = "@email",
-	cssName,
-	name
+	cssName = "input",
+	name = "email"
 }) {
 	return (
 		<input 
 		type={ type } 
 		placeholder={ placeHolder }
 		required="required"
-		className={ cssName ? cssName : "input" } 
+		className={ cssName } 
 		name={name}
+		autoComplete="your-email"
 		/>
 	);
 }
