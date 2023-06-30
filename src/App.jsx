@@ -6,7 +6,6 @@ import Button from "./components/Button";
 import SignUp from "./components/SignUp";
 import Success from "./components/Success";
 import Form from "./components/Form";
-import { log } from "./components/util";
 
 import { useState } from "react";
 
