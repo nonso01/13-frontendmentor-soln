@@ -9,7 +9,9 @@ import IllustrationSignUpSmall from "../assets/images/illustration-sign-up-mobil
 
 import { useState } from "react";
 
-function SignUpCard({handleSubmit, handleInput}) {
+function SignUpCard({handleSubmit,
+	handleInput,
+	wrongEmailFormat}) {
 
 	return (
 		<div className="sign-up shadow-low"> 
@@ -23,7 +25,8 @@ function SignUpCard({handleSubmit, handleInput}) {
 
 		<Form
 		handleSubmit={handleSubmit}
-		handleInput={handleInput}/>
+		handleInput={handleInput}
+		error={wrongEmailFormat}/>
 		</div>
 
 		<div className="card-image"> 

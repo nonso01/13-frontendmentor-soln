@@ -1,6 +1,6 @@
-function Paragraph({ text="description"}) {
+function Paragraph({ text="description", error=false}) {
 	return (
-		<p className="p">
+		<p className={ error ? "error" : "p"}>
 		{ text }
 		</p>
 	);

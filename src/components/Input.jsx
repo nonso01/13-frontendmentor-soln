@@ -1,14 +1,15 @@
 function Input({type = "email",
 	placeHolder = "@email",
 	name = "email",
-	handleInput
+	handleInput,
+	error
 }) {
 	return (
 		<input 
 		type={ type } 
 		placeholder={ placeHolder }
 		required="required"
-		className="input" 
+		className={error ? "error-input" : "input"}
 		name={name}
 		autoComplete="your-email"
 		onInput={handleInput}

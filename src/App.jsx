@@ -10,6 +10,7 @@ import Form from "./components/Form";
 import { useState } from "react";
 
 const log = console.log;
+
 const matchEmail = /hello/;
 
 function dq(x = "") {
@@ -21,6 +22,12 @@ function App() {
 	let [loaded, setLoaded] = useState(false);
 	let [submit, setSubmit] = useState(false);
 	let [email, setEmail] = useState("");
+	let [wrongEmailFormat, setWrongEmailFormat] = useState(false);
+
+	let [onMobile, setOnMobile] = useState(
+		window.matchMedia("(max-width: 780px)")
+	);
+
 
 	function handleInput(e) {
 		e.stopPropagation();
@@ -34,11 +41,14 @@ function App() {
                 log(e.target.className);
         }
 
+	log(email)
+
 
 	if(!submit) return (
 		<SignUp 
 		handleInput={handleInput}
-		handleSubmit={handleSubmit}/>
+		handleSubmit={handleSubmit}
+		wrongEmailFormat={wrongEmailFormat}/>
 	);
 		else return <Success />
 }
