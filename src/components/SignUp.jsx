@@ -9,14 +9,10 @@ import IllustrationSignUpSmall from "../assets/images/illustration-sign-up-mobil
 
 import { useState } from "react";
 
-function SignUpCard({handleSubmit}) {
-	function handleClick() {
-		console.log("clicked");
-	}
+function SignUpCard({handleSubmit, handleInput}) {
 
 	return (
-		<div className="sign-up shadow-low"
-		onClick={handleClick}> 
+		<div className="sign-up shadow-low"> 
 
 		<div className="card">  
 		<Heading text={"Stay updated!"} />
@@ -25,7 +21,9 @@ function SignUpCard({handleSubmit}) {
 
 		<List />
 
-		<Form />
+		<Form
+		handleSubmit={handleSubmit}
+		handleInput={handleInput}/>
 		</div>
 
 		<div className="card-image"> 

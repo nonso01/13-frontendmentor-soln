@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-function Button({text="hello", handleSubmit}) {
+function Button({text="hello", type = "submit", handleSubmit}) {
 
 	return (
 		<button className="btn"
-		onClick={handleSubmit}>
+		onClick={handleSubmit}
+		type={type}>
 		{ text }
 		</button>
 	);

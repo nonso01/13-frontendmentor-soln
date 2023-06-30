@@ -9,13 +9,38 @@ import Form from "./components/Form";
 
 import { useState } from "react";
 
+const log = console.log;
+const matchEmail = /hello/;
 
+function dq(x = "") {
+	return document.querySelector(x);
+}
+
+console.clear()
 function App() {
+	let [loaded, setLoaded] = useState(false);
 	let [submit, setSubmit] = useState(false);
 	let [email, setEmail] = useState("");
 
-	if(!submit) return <SignUp />
+	function handleInput(e) {
+		e.stopPropagation();
+		
+		const value = e.target.value;
+		setEmail(value);
+	}
+
+	function handleSubmit(e) {
+                e.stopPropagation();
+                log(e.target.className);
+        }
+
+
+	if(!submit) return (
+		<SignUp 
+		handleInput={handleInput}
+		handleSubmit={handleSubmit}/>
+	);
 		else return <Success />
 }
-export default App
+export default App;
 
