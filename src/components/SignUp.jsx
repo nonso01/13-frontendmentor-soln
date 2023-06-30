@@ -20,7 +20,12 @@ function SignUpCard({handleSubmit}) {
 
 		<div className="card">  
 		<Heading text={"Stay updated!"} />
+
 		<Paragraph text={"Join 60,000+ product managers receiving monthly updates on:"} />
+
+		<List />
+
+		<Form />
 		</div>
 
 		<div className="card-image"> 

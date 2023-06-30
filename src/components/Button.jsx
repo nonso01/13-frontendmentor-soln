@@ -1,14 +1,11 @@
 import { useState } from "react";
 
-function Button({text="hello"}) {
-	let [c, setC] = useState(0)
-	function counter() {
-		setC(c + 1);
-	}
+function Button({text="hello", handleSubmit}) {
 
 	return (
-		<button className="btn" onClick={counter}>
-		{ text } { c }
+		<button className="btn"
+		onClick={handleSubmit}>
+		{ text }
 		</button>
 	);
 }

@@ -4,7 +4,6 @@ function Input({type = "email",
 	name
 }) {
 	return (
-		<>
 		<input 
 		type={ type } 
 		placeholder={ placeHolder }
@@ -12,7 +11,6 @@ function Input({type = "email",
 		className={ cssName ? cssName : "input" } 
 		name={name}
 		/>
-		</>
 	);
 }
 
