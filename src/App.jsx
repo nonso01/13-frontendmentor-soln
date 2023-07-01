@@ -6,20 +6,26 @@ import Button from "./components/Button";
 import SignUp from "./components/SignUp";
 import Success from "./components/Success";
 import Form from "./components/Form";
+import Loader from "./components/Loader";
 
 import { useState } from "react";
 
 const log = console.log;
 
-const matchEmail = /hello/;
-
 function dq(x = "") {
 	return document.querySelector(x);
 }
 
+const root = dq("#root");
+
+const matchEmail = /hello/;
+
+const HUNDRED = 100;
+
 console.clear()
 function App() {
 	let [loaded, setLoaded] = useState(false);
+	let [loadingCount, setLoadingCount] = useState(0);
 	let [submit, setSubmit] = useState(false);
 	let [email, setEmail] = useState("");
 	let [wrongEmailFormat, setWrongEmailFormat] = useState(false);
@@ -28,6 +34,13 @@ function App() {
 		window.matchMedia("(max-width: 780px)")
 	);
 
+	root.onanimationiteration = () => {
+		loadingCount >= HUNDRED ? setLoadingCount(HUNDRED) : setLoadingCount(++loadingCount)
+	}
+
+	root.onanimationend = () => {
+		setLoaded(true);
+	}
 
 	function handleInput(e) {
 		e.stopPropagation();
@@ -41,16 +54,19 @@ function App() {
                 log(e.target.className);
         }
 
-	log(email)
+//	log(email)
 
 
-	if(!submit) return (
-		<SignUp 
-		handleInput={handleInput}
-		handleSubmit={handleSubmit}
-		wrongEmailFormat={wrongEmailFormat}/>
-	);
-		else return <Success />
+		if(!loaded) return ( 
+			<Loader count={loadingCount} />
+		)
+	else if(loaded && !submit) return (
+		<SignUp
+                handleInput={handleInput}
+                handleSubmit={handleSubmit}
+                wrongEmailFormat={wrongEmailFormat}/>
+	)
+	else return <Success />
 }
 export default App;
 
