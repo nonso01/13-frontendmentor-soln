@@ -22,7 +22,8 @@ const matchEmail = /hello/;
 
 const HUNDRED = 100;
 
-console.clear()
+//console.clear()
+
 function App() {
 	let [loaded, setLoaded] = useState(false);
 	let [loadingCount, setLoadingCount] = useState(0);
@@ -31,8 +32,13 @@ function App() {
 	let [wrongEmailFormat, setWrongEmailFormat] = useState(false);
 
 	let [onMobile, setOnMobile] = useState(
-		window.matchMedia("(max-width: 780px)")
+		window.matchMedia("(max-width: 767.98px)")
 	);
+
+	onMobile.onchange = e => {
+		setOnMobile(e.target)
+		log(e)
+	}
 
 	root.onanimationiteration = () => {
 		loadingCount >= HUNDRED ? setLoadingCount(HUNDRED) : setLoadingCount(++loadingCount)
@@ -51,7 +57,7 @@ function App() {
                 log(e.target.className);
         }
 
-//	log(email)
+	log(onMobile)
 
 
 		if(!loaded) return ( 
@@ -61,6 +67,7 @@ function App() {
 		<SignUp
                 handleInput={handleInput}
                 handleSubmit={handleSubmit}
+		onMobile={onMobile.matches}
                 wrongEmailFormat={wrongEmailFormat}/>
 	)
 	else return <Success />

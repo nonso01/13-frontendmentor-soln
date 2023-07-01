@@ -11,7 +11,9 @@ import { useState } from "react";
 
 function SignUpCard({handleSubmit,
 	handleInput,
-	wrongEmailFormat}) {
+	wrongEmailFormat,
+	onMobile
+}) {
 
 	return (
 		<div className="sign-up shadow-low"> 
@@ -31,7 +33,7 @@ function SignUpCard({handleSubmit,
 
 		<div className="card-image"> 
 		<img
-		src={IllustrationSignUpLarge} 
+		src={onMobile ? IllustrationSignUpSmall : IllustrationSignUpLarge} 
 		alt="illustration sign up" />
 		</div>
 
