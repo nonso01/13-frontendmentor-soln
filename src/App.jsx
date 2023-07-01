@@ -18,11 +18,11 @@ function dq(x = "") {
 
 const root = dq("#root");
 
-const matchEmail = /hello/;
+const matchEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 const HUNDRED = 100;
 
-//console.clear()
+console.clear()
 
 function App() {
 	let [loaded, setLoaded] = useState(false);
@@ -54,10 +54,9 @@ function App() {
 	}
 
 	function handleSubmit(e) {
-                log(e.target.className);
+		e.preventDefault()
+		setWrongEmailFormat(!matchEmail.test(email))
         }
-
-	log(onMobile)
 
 
 		if(!loaded) return ( 

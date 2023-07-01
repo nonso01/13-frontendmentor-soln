@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "eruda": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -18,6 +17,7 @@
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",
+    "eruda": "^3.0.0",
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.25.3",
     "eslint-plugin-react-hooks": "^4.6.0",
