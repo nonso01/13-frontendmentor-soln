@@ -42,15 +42,12 @@ function App() {
 		setLoaded(true);
 	}
 
-	function handleInput(e) {
-		e.stopPropagation();
-		
+	function handleInput(e) {	
 		const value = e.target.value;
 		setEmail(value);
 	}
 
 	function handleSubmit(e) {
-                e.stopPropagation();
                 log(e.target.className);
         }
 
