@@ -1,8 +1,3 @@
-import Heading from "./components/Heading";
-import Input from "./components/Input";
-import Paragraph from "./components/Paragraph";
-import List from "./components/List";
-import Button from "./components/Button";
 import SignUp from "./components/SignUp";
 import Success from "./components/Success";
 import Form from "./components/Form";
@@ -16,6 +11,11 @@ function dq(x = "") {
 	return document.querySelector(x);
 }
 
+function len(x) {
+	return x?.length;
+}
+
+
 const root = dq("#root");
 
 const matchEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -25,11 +25,11 @@ const HUNDRED = 100;
 console.clear()
 
 function App() {
-	let [loaded, setLoaded] = useState(false);
+	let [loaded, setLoaded] = useState(() => false);
 	let [loadingCount, setLoadingCount] = useState(0);
-	let [submit, setSubmit] = useState(false);
-	let [email, setEmail] = useState("");
-	let [wrongEmailFormat, setWrongEmailFormat] = useState(false);
+	let [submit, setSubmit] = useState((n) => false);
+	let [email, setEmail] = useState(() => "");
+	let [wrongEmailFormat, setWrongEmailFormat] = useState(() => false);
 
 	let [onMobile, setOnMobile] = useState(
 		window.matchMedia("(max-width: 767.98px)")
@@ -45,17 +45,22 @@ function App() {
 	}
 
 	root.onanimationend = () => {
-		setLoaded(true);
+		setLoaded(() => true);
 	}
 
 	function handleInput(e) {	
-		const value = e.target.value;
-		setEmail(value);
+		let { value } = e.target
+		setEmail(() => value);
 	}
+
+	const isEmail = matchEmail.test(email)
 
 	function handleSubmit(e) {
 		e.preventDefault()
-		setWrongEmailFormat(!matchEmail.test(email))
+		setWrongEmailFormat(() => !isEmail)
+
+		if(!wrongEmailFormat && isEmail)
+			setSubmit((n) => !n);
         }
 
 
@@ -69,7 +74,7 @@ function App() {
 		onMobile={onMobile.matches}
                 wrongEmailFormat={wrongEmailFormat}/>
 	)
-	else return <Success />
+	else return <Success email={email} />
 }
 export default App;
 
