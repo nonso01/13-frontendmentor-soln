@@ -4,7 +4,7 @@ import Paragraph from "./Paragraph";
 
 import IconSuccess from "../assets/images/icon-success.svg";
 
-function Success({email = "me@gmail.com"}) {
+function Success({email = "me@gmail.com", handleDismiss}) {
 	return (
 		<div 
 		className="success shadow-low fx col btw">
@@ -25,7 +25,8 @@ function Success({email = "me@gmail.com"}) {
 
 		<Button
 		type={"button"} 
-		text={"Dismiss message"}/>
+		text={"Dismiss message"}
+		handleSubmit={handleDismiss}/>
 
 		</div>
 	);
