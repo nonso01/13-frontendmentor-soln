@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function Button({text="hello", type = "submit", handleSubmit}) {
 
 	return (

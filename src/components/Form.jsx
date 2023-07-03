@@ -2,8 +2,6 @@ import Button from "./Button";
 import Input from "./Input";
 import Paragraph from "./Paragraph";
 
-import { useState } from "react";
-
 function Form({ handleSubmit, handleInput, error}) {
 	return (
 		<div className="form">
