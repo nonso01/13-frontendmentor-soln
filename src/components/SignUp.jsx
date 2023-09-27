@@ -6,40 +6,35 @@ import Paragraph from "./Paragraph";
 import IllustrationSignUpLarge from "../assets/images/illustration-sign-up-desktop.svg";
 import IllustrationSignUpSmall from "../assets/images/illustration-sign-up-mobile.svg";
 
-
 import { useState } from "react";
 
-function SignUpCard({handleSubmit,
-	handleInput,
-	wrongEmailFormat,
-	onMobile
-}) {
+function SignUpCard({ handleSubmit, handleInput, wrongEmailFormat, onMobile }) {
+  return (
+    <div className="sign-up shadow-low">
+      <div className="card">
+        <Heading text={"Stay updated!"} />
 
-	return (
-		<div className="sign-up shadow-low"> 
+        <Paragraph
+          text={"Join 60,000+ product managers receiving monthly updates on:"}
+        />
 
-		<div className="card">  
-		<Heading text={"Stay updated!"} />
+        <List />
 
-		<Paragraph text={"Join 60,000+ product managers receiving monthly updates on:"} />
+        <Form
+          handleSubmit={handleSubmit}
+          handleInput={handleInput}
+          error={wrongEmailFormat}
+        />
+      </div>
 
-		<List />
-
-		<Form
-		handleSubmit={handleSubmit}
-		handleInput={handleInput}
-		error={wrongEmailFormat}/>
-		</div>
-
-		<div className="card-image"> 
-		<img
-		src={onMobile ? IllustrationSignUpSmall : IllustrationSignUpLarge} 
-		alt="illustration sign up" />
-		</div>
-
-		</div>
-	);
+      <div className="card-image">
+        <img
+          src={onMobile ? IllustrationSignUpSmall : IllustrationSignUpLarge}
+          alt="illustration sign up"
+        />
+      </div>
+    </div>
+  );
 }
 
 export default SignUpCard;
-

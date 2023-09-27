@@ -1,9 +1,5 @@
-function Heading({text = "later sign up test"}) {
-	return (
-		<h1 className="heading">
-		{ text }
-		</h1>
-	);
+function Heading({ text = "later sign up test" }) {
+  return <h1 className="heading">{text}</h1>;
 }
 
 export default Heading;

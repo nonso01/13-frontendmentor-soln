@@ -4,33 +4,29 @@ import Paragraph from "./Paragraph";
 
 import IconSuccess from "../assets/images/icon-success.svg";
 
-function Success({email = "me@gmail.com", handleDismiss}) {
-	return (
-		<div 
-		className="success shadow-low fx col btw">
+function Success({ email = "me@gmail.com", handleDismiss }) {
+  return (
+    <div className="success shadow-low fx col btw">
+      <div className="dummy fx col btw">
+        <div className="success-icon">
+          <img src={IconSuccess} alt="success icon" />
+        </div>
 
-		<div className="dummy fx col btw">
+        <Heading text={"Thanks for subscribing!"} />
 
-		<div className="success-icon">
-		<img src={IconSuccess} alt="success icon" />
-		</div>
+        <Paragraph
+          text={`A confirmation email has been sent to 
+			${email} Please open it and click the button inside to confirm your subscription.`}
+        />
+      </div>
 
-		<Heading text={"Thanks for subscribing!"} />
-
-		<Paragraph
-		text={`A confirmation email has been sent to 
-			${email} Please open it and click the button inside to confirm your subscription.`} />
-
-		</div>
-
-		<Button
-		type={"button"} 
-		text={"Dismiss message"}
-		handleSubmit={handleDismiss}/>
-
-		</div>
-	);
+      <Button
+        type={"button"}
+        text={"Dismiss message"}
+        handleSubmit={handleDismiss}
+      />
+    </div>
+  );
 }
 
 export default Success;
-
